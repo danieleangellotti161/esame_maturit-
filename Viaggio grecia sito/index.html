@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viaggio in Grecia</title>
+
+  <!-- Font GFS Neohellenic -->
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Neohellenic&display=swap" rel="stylesheet">
+
+  <!-- Collegamento CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sunlight"></div>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Viaggio in Grecia</h1>
+  </header>
+
+  <!-- MAPPA GENERALE GRECIA -->
+  <iframe
+    id="mappa"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4640838.715410636!2d19.061024974376224!3d38.24663946528386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135b4ac71184c66d%3A0x363c9a4e6c54c96b!2sGrecia!5e0!3m2!1sit!2sit!4v1696969864909!5m2!1sit!2sit"
+    allowfullscreen=""
+    loading="lazy">
+  </iframe>
+
+  <!-- CONTENUTO PRINCIPALE -->
+  <div class="accordion-container">
+
+    <!-- OLIMPIA -->
+    <div class="accordion-item" id="olimpia">
+      <div class="accordion-header">Olimpia</div>
+      <div class="accordion-content">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3195.135012345678!2d21.627679615267123!3d37.638458799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x136092ef583187f3%3A0x998b4c652e12df7!2sOlimpia%2C%20Archea%20Olympia%2C%20Grecia!5e0!3m2!1sit!2sit!4v1760725190777!5m2!1sit!2sit" 
+          height="300" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+        <p>
+          Olimpia, situata nella regione dell’Elide nel Peloponneso, fu uno dei più importanti centri religiosi dell'antica Grecia.
+          Qui si svolgevano i celebri Giochi Olimpici in onore di Zeus, evento che segnava la pace tra le poleis greche.
+          Gli scavi archeologici hanno riportato alla luce templi, stadi e luoghi di culto che testimoniano l’importanza culturale e spirituale di questo sito millenario.
+        </p>
+
+        <!-- SLIDESHOW SITO ARCHEOLOGICO -->
+        <div class="slideshow-container">
+          <div class="slide">
+            <img src="colonna_vincitori.jpg" alt="Colonna dei Vincitori">
+            <div class="caption">Colonna restaurata (2014) del monumento votivo tolematico.</div>
+          </div>
+          <div class="slide">
+            <img src="tempio_giunone.jpg" alt="Tempio di Giunone">
+            <div class="caption">Il Tempio di Giunone a Olimpia, meglio noto come Heraion, è il più antico e uno dei più significativi del santuario di Olimpia in Grecia. Dedicato alla dea Era (Giunone per i Romani), fu costruito intorno al 580 a.C. e fu la prima struttura monumentale del sito.</div>
+          </div>
+          <div class="slide">
+            <img src="stadio.jpg" alt="Stadio di Olimpia">
+            <div class="caption">Lo stadio dell'antica Olimpia era lungo circa 192,27 metri. Questa lunghezza corrispondeva a un'unità di misura standard chiamata "stadio". La linea di partenza e arrivo era rappresentata da una lastra di marmo </div>
+          </div>
+          <button class="prev" onclick="changeSlide(-1, event)">&#10094;</button>
+          <button class="next" onclick="changeSlide(1, event)">&#10095;</button>
+        </div>
+
+        <!-- SLIDESHOW MUSEO ARCHEOLOGICO -->
+        <div class="slideshow-museum-container">
+          <h2>Museo Archeologico di Olimpia</h2>
+          <div class="slide-museum">
+            <img src="caschi.jpg" alt="Esterno Museo Archeologico">
+          </div>
+          <div class="slide-museum">
+            <img src="nike_peonio.jpg" alt="Statue nel Museo">
+            <div class="caption">Nike di Peonio</div>
+          </div>
+          <div class="slide-museum">
+            <img src="hermes.jpg" alt="Statua di Hermes">
+            <div class="caption">Statua di Hermes di Prassitele</div>
+          </div>
+          <div class="slide-museum">
+            <img src="genio_alato.jpg" alt="Reperti nel Museo">
+            <div class="caption">Figura femminile alata in bronzo</div>
+          </div>
+          <button class="prev" onclick="changeSlideMuseum(-1, event)">&#10094;</button>
+          <button class="next" onclick="changeSlideMuseum(1, event)">&#10095;</button>
+        </div>
+
+        <!-- DIFFERENZE COLONNE -->
+        <div class="columns-section">
+          <h2>Colonne Doriche, Ioniche e Corinzie</h2>
+          <div class="column-item">
+            <h3>Colonna Dorica</h3>
+            <img src="colonna_dorica.jpg" alt="Colonna Dorica">
+            <p>La colonna dorica è caratterizzata da una semplicità robusta, con un fusto scanalato ma senza base. Il capitello è sobrio, composto da un echino e un abaco quadrato. È tipica di edifici come il Tempio di Zeus a Olimpia, rappresentando forza e stabilità.</p>
+          </div>
+          <div class="column-item">
+            <h3>Colonna Ionica</h3>
+            <img src="colonna_ionica.jpg" alt="Colonna Ionica">
+            <p>La colonna ionica è più slanciata, con una base distinta e un fusto scanalato. Il capitello presenta volute a spirale, conferendo un aspetto elegante e decorativo. È comune in templi come l’Eretteo ad Atene.</p>
+          </div>
+          <div class="column-item">
+            <h3>Colonna Corinzia</h3>
+            <img src="colonna_corinzia.jpg" alt="Colonna Corinzia">
+            <p>La colonna corinzia è la più ornamentale, con un capitello decorato da foglie di acanto. Il fusto è simile a quello ionico, ma il capitello elaborato la rende ideale per edifici di grande prestigio, come il Tempio di Apollo Epicurio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MICENE -->
+    <div class="accordion-item" id="micene">
+      <div class="accordion-header">Micene</div>
+      <div class="accordion-content">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3196.8146647768377!2d22.751714315266297!3d37.73073397976465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13615b7a7f5c7b53%3A0x400bd2ce2d9f6f0!2sMicene%2C%20Grecia!5e0!3m2!1sit!2sit!4v1696970123456!5m2!1sit!2sit" 
+          height="300" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <p>
+          Micene, situata nel Peloponneso, è uno dei più importanti siti archeologici della Grecia, cuore della civiltà micenea. Famosa per la Porta dei Leoni e le tombe a tholos, come il Tesoro di Atreo, Micene era un centro di potere e cultura tra il 1600 e il 1100 a.C. I resti delle sue mura ciclopiche e del palazzo reale testimoniavano la grandezza di questa antica città.
+        </p>
+
+        <!-- SEZIONE SLIDER CON TESTO A DESTRA -->
+        <div class="micene-section">
+          <!-- SLIDESHOW MICENE -->
+          <<!-- SLIDESHOW MICENE -->
+          <div class="slideshow-micene-container">
+            <div class="slide-micene">
+              <img src="veduta_esterna_micene.jpg" alt="Veduta generale di Micene">
+            </div>
+            <div class="slide-micene">
+              <img src="scavi_micene.jpg" alt="Porta dei Leoni a Micene">
+            </div>
+            <div class="slide-micene">
+              <img src="Micene_Porta_dei_leoni.jpg" alt="Porta dei Leoni vista frontale">
+              <div class="caption">Porta dei Leoni</div>
+            </div>
+            <div class="slide-micene">
+              <img src="veduta_dasopra.jpg" alt="Mura ciclopiche di Micene">
+            </div>
+            <button class="prev" onclick="changeSlideMicene(-1, event)">&#10094;</button>
+            <button class="next" onclick="changeSlideMicene(1, event)">&#10095;</button>
+          </div>
+
+          <!-- TESTO FISSO A DESTRA -->
+          <div class="micene-text">
+            <h2>L'Acropoli di Micene</h2>
+            <p>L'Acropoli di Micene, cuore fortificato della civiltà micenea (1600-1100 a.C.), era circondata da mura ciclopiche, così imponenti da essere attribuite ai mitici Ciclopi. Includeva il palazzo reale, templi e tombe reali, con la celebre Porta dei Leoni come ingresso, decorata da due leoni rampanti che simboleggiavano il potere dei re micenei, come il leggendario Agamennone dell'Iliade di Omero.</p>
+            <p>Gli scavi iniziarono nel 1876 per opera di Heinrich Schliemann, archeologo tedesco ispirato dai poemi omerici. Schliemann scoprì le tombe a fossa del Circolo A, con tesori d'oro, armi e la famosa "Maschera di Agamennone". I suoi lavori rivelarono la ricchezza della civiltà micenea, ponendo le basi per gli studi moderni.</p>
+          </div>
+        </div>
+
+        <!-- SEZIONE TOMBA DI AGAMENNONE -->
+        <div class="agamennone-section">
+          <h2>Tomba di Agamennone (Tesoro di Atreo)</h2>
+          <img src="tomba_agamennone.jpg" alt="Tomba di Agamennone">
+          <p>La Tomba di Agamennone, nota anche come Tesoro di Atreo, è una monumentale tomba a tholos del XIII secolo a.C. La sua imponente cupola, costruita con pietre ciclopiche, è tra le meglio conservate dell'epoca micenea e rappresenta un capolavoro dell'architettura funeraria.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DELFI -->
+    <div class="accordion-item" id="delfi">
+      <div class="accordion-header">Delfi</div>
+      <div class="accordion-content">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3161.234567890!2d22.5011!3d38.4823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135f1b2a3c4d5e6f%3A0x400bd2ce2d9f6f0!2sDelphi%2C%20Greece!5e0!3m2!1sit!2sit!4v1696970345678!5m2!1sit!2sit" 
+          height="300" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <p>
+          Delfi, situata sui pendii del Monte Parnasso, era un importante santuario religioso nell'antica Grecia, famoso per l'Oracolo di Apollo. Il sito ospitava il Tempio di Apollo, dove la Pizia pronunciava profezie divine, influenzando decisioni politiche e personali in tutto il mondo greco. Delfi era considerato l'ombelico del mondo, simboleggiato dalla pietra omphalos, e attirava pellegrini per i Giochi Pitici.
+        </p>
+
+        <!-- SLIDESHOW TEMPIO DI APOLLO -->
+        <div class="slideshow-tempio-container">
+          <h2>Tempio di Apollo</h2>
+          <div class="slide-tempio">
+            <img src="apollo1.jpg" alt="Tempio di Apollo veduta generale">
+          </div>
+          <div class="slide-tempio">
+            <img src="apollo2.jpg" alt="Rovine del Tempio di Apollo">
+          </div>
+          <div class="slide-tempio">
+            <img src="apollo3.jpg" alt="Colonne del Tempio di Apollo">
+            <div class="caption">Le colonne doriche del Tempio di Apollo</div>
+          </div>
+          <button class="prev" onclick="changeSlideTempio(-1, event)">&#10094;</button>
+          <button class="next" onclick="changeSlideTempio(1, event)">&#10095;</button>
+        </div>
+
+        <!-- SLIDESHOW MUSEO ARCHEOLOGICO DI DELFI -->
+        <div class="slideshow-museo-delfi-container">
+          <h2>Museo Archeologico di Delfi</h2>
+          <div class="slide-museo-delfi">
+            <img src="cleobi e bitone.jpg" alt="Reperti nel Museo di Delfi">
+            <div class="caption">Cleobi e Bitone</div>
+          </div>
+          <div class="slide-museo-delfi">
+            <img src="auriga.jpg" alt="Auriga di Delfi">
+            <div class="caption">L'Auriga di Delfi</div>
+          </div>
+          <div class="slide-museo-delfi">
+            <img src="sfinge.jpg" alt="Sfinge di Nasso">
+            <div class="caption">La Sfinge di Nasso</div>
+          </div>
+          <button class="prev" onclick="changeSlideMuseoDelfi(-1, event)">&#10094;</button>
+          <button class="next" onclick="changeSlideMuseoDelfi(1, event)">&#10095;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEFKADA -->
+    <div class="accordion-item" id="lefkada">
+      <div class="accordion-header">Lefkada</div>
+      <div class="accordion-content">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.071861819657!2d20.695144215283944!3d38.70905897960492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1366768c7c8e7b7d%3A0x400bd2ce2d9f6f0!2sLefkada%2C%20Grecia!5e0!3m2!1sit!2sit!4v1696970234567!5m2!1sit!2sit" 
+          height="300" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <p>
+          Lefkada, un’isola ionica collegata alla terraferma da un ponte, è rinomata per le sue spiagge mozzafiato come Porto Katsiki e Egremni. La città principale, Lefkada, offre un affascinante mix di storia e cultura, con il suo castello veneziano e il museo archeologico. L’isola è anche un paradiso per gli amanti della natura e degli sport acquatici.
+        </p>
+
+        <!-- SLOT PER IMMAGINE IN LEFKADA -->
+        <div class="lefkada-image-section">
+          <img src="lefkada.jpg" alt="Immagine di Lefkada">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="overlay"></div>
+
+  <!-- SCRIPT JS -->
+  <script>
+    const items = document.querySelectorAll(".accordion-item");
+    const overlay = document.querySelector(".overlay");
+
+    items.forEach(item => {
+      const content = item.querySelector(".accordion-content");
+
+      item.addEventListener("click", e => {
+        e.stopPropagation();
+        const isActive = item.classList.contains("active");
+
+        // Chiudi tutte le altre
+        items.forEach(i => i.classList.remove("active"));
+        overlay.style.display = "none";
+
+        if(!isActive) {
+          item.classList.add("active");
+          overlay.style.display = "block";
+        }
+      });
+    });
+
+    // Chiudi cliccando sull’overlay
+    overlay.addEventListener("click", () => {
+      items.forEach(i => i.classList.remove("active"));
+      overlay.style.display = "none";
+    });
+
+    // Chiudi cliccando fuori
+    document.body.addEventListener("click", e => {
+      if(!e.target.closest(".accordion-item")) {
+        items.forEach(i => i.classList.remove("active"));
+        overlay.style.display = "none";
+      }
+    });
+
+    // Slideshow Olimpia Sito Archeologico
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.display = i === index ? "block" : "none";
+      });
+    }
+
+    function changeSlide(direction, e) {
+      if (e) e.stopPropagation();
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    // Initialize slideshow Olimpia Sito Archeologico
+    showSlide(currentSlide);
+
+    // Slideshow Olimpia Museo Archeologico
+    let currentSlideMuseum = 0;
+    const slidesMuseum = document.querySelectorAll(".slide-museum");
+    const totalSlidesMuseum = slidesMuseum.length;
+
+    function showSlideMuseum(index) {
+      slidesMuseum.forEach((slide, i) => {
+        slide.style.display = i === index ? "block" : "none";
+      });
+    }
+
+    function changeSlideMuseum(direction, e) {
+      if (e) e.stopPropagation();
+      currentSlideMuseum = (currentSlideMuseum + direction + totalSlidesMuseum) % totalSlidesMuseum;
+      showSlideMuseum(currentSlideMuseum);
+    }
+
+    // Initialize slideshow Olimpia Museo Archeologico
+    if (slidesMuseum.length > 0) {
+      showSlideMuseum(currentSlideMuseum);
+    }
+
+    // Slideshow Micene
+    let currentSlideMicene = 0;
+    const slidesMicene = document.querySelectorAll(".slide-micene");
+    const totalSlidesMicene = slidesMicene.length;
+
+    function showSlideMicene(index) {
+      slidesMicene.forEach((slide, i) => {
+        slide.style.display = i === index ? "block" : "none";
+      });
+    }
+
+    function changeSlideMicene(direction, e) {
+      if (e) e.stopPropagation();
+      currentSlideMicene = (currentSlideMicene + direction + totalSlidesMicene) % totalSlidesMicene;
+      showSlideMicene(currentSlideMicene);
+    }
+
+    // Initialize slideshow Micene
+    if (slidesMicene.length > 0) {
+      showSlideMicene(currentSlideMicene);
+    }
+
+    // Slideshow Delfi Tempio di Apollo
+    let currentSlideTempio = 0;
+    const slidesTempio = document.querySelectorAll(".slide-tempio");
+    const totalSlidesTempio = slidesTempio.length;
+
+    function showSlideTempio(index) {
+      slidesTempio.forEach((slide, i) => {
+        slide.style.display = i === index ? "block" : "none";
+      });
+    }
+
+    function changeSlideTempio(direction, e) {
+      if (e) e.stopPropagation();
+      currentSlideTempio = (currentSlideTempio + direction + totalSlidesTempio) % totalSlidesTempio;
+      showSlideTempio(currentSlideTempio);
+    }
+
+    // Initialize slideshow Delfi Tempio di Apollo
+    if (slidesTempio.length > 0) {
+      showSlideTempio(currentSlideTempio);
+    }
+
+    // Slideshow Delfi Museo Archeologico
+    let currentSlideMuseoDelfi = 0;
+    const slidesMuseoDelfi = document.querySelectorAll(".slide-museo-delfi");
+    const totalSlidesMuseoDelfi = slidesMuseoDelfi.length;
+
+    function showSlideMuseoDelfi(index) {
+      slidesMuseoDelfi.forEach((slide, i) => {
+        slide.style.display = i === index ? "block" : "none";
+      });
+    }
+
+    function changeSlideMuseoDelfi(direction, e) {
+      if (e) e.stopPropagation();
+      currentSlideMuseoDelfi = (currentSlideMuseoDelfi + direction + totalSlidesMuseoDelfi) % totalSlidesMuseoDelfi;
+      showSlideMuseoDelfi(currentSlideMuseoDelfi);
+    }
+
+    // Initialize slideshow Delfi Museo Archeologico
+    if (slidesMuseoDelfi.length > 0) {
+      showSlideMuseoDelfi(currentSlideMuseoDelfi);
+    }
+  </script>
+
+</body>
+</html>
