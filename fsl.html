@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percorsi ex-PCTO - Daniele Angellotti</title>
+    <style>
+        /* --- PALETTE CROMATICA ISPIRATA A "BIOINFORMATICA.PDF" --- */
+        :root {
+            --bg-principal: #fbfcfd;       /* Sfondo chiaro e pulito */
+            --bg-card: #ffffff;            /* Bianco puro per le sezioni */
+            --text-main: #1a1a1a;           /* Nero/Antracite intenso per il testo */
+            --text-muted: #4a5568;          /* Grigio scuro per i dettagli secondari */
+            --border-color: #e2e8f0;        /* Sottili linee di divisione chiare */
+            
+            /* Colori della ruota dei codoni e del software */
+            --bio-blue: #5ba4e5;            /* L'azzurro dei codoni U e dei software di testo */
+            --bio-pink: #f6a1c1;            /* Il rosa dei codoni A */
+            --bio-green: #76cb9b;           /* Il verde dei codoni G */
+            --bio-yellow: #f7e178;          /* Il giallo chiaro dei codoni C */
+            
+            --radius: 8px;                  /* Angoli squadrati e moderni come i blocchi del codice */
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        /* --- RESET E STILI BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--text-main);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: var(--bio-blue);
+            font-weight: 600;
+            margin-top: 0.6rem;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+        }
+
+        /* --- STRUTTURA LAYOUT --- */
+        main {
+            max-width: 950px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Divisione per Anni (Macro Blocchi FSL) */
+        .fsl-year-container {
+            margin-bottom: 4.5rem;
+        }
+
+        .fsl-year-title {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .fsl-year-title::after {
+            content: '';
+            flex-grow: 1;
+            height: 3px;
+            background: linear-gradient(to right, var(--bio-blue), transparent);
+        }
+
+        .fsl-year-container:nth-of-type(2) .fsl-year-title::after {
+            background: linear-gradient(to right, var(--bio-green), transparent);
+        }
+        .fsl-year-container:nth-of-type(3) .fsl-year-title::after {
+            background: linear-gradient(to right, var(--bio-pink), transparent);
+        }
+
+        section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        section h2 {
+            font-size: 1.45rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* --- STRUTTURA AFFIANCATA (TESTO + FOTO) --- */
+        .subsection-grid {
+            display: grid;
+            grid-template-columns: 1fr 280px; /* Testo largo, colonna foto fissa a 280px */
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            align-items: start;
+        }
+
+        .subsection-text h3 {
+            font-size: 1.15rem;
+            color: var(--text-main);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            border-bottom: 2px solid var(--bio-blue);
+            padding-bottom: 2px;
+        }
+
+        .fsl-year-container:nth-of-type(2) .subsection-text h3 { border-bottom-color: var(--bio-green); }
+        .fsl-year-container:nth-of-type(3) .subsection-text h3 { border-bottom-color: var(--bio-pink); }
+
+        /* Contenitore per la singola immagine affiancata */
+        .subsection-photo {
+            width: 100%;
+            height: 210px; /* Proporzione 4:3 elegante */
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            background-color: #f8fafc;
+        }
+
+        .subsection-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- PARAGRAFI ED ELENCHI --- */
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        ul li::before {
+            content: "■";
+            color: var(--bio-blue);
+            font-size: 0.8rem;
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .fsl-year-container:nth-of-type(2) ul li::before { color: var(--bio-green); }
+        .fsl-year-container:nth-of-type(3) ul li::before { color: var(--bio-pink); }
+
+        /* --- TABELLA PCR MODERNA --- */
+        .table-container {
+            overflow-x: auto;
+            margin: 1.2rem 0;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.85rem;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--text-main);
+            font-weight: 600;
+            padding: 0.7rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        td {
+            padding: 0.7rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* --- BOX NOTA CONTAMINAZIONE --- */
+        .alert-box {
+            background-color: #fffbeb;
+            border-left: 4px solid var(--bio-yellow);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #78350f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-card);
+        }
+
+        /* --- RESPONSIVITÀ PER TELEFONI --- */
+        @media (max-width: 768px) {
+            .subsection-grid {
+                grid-template-columns: 1fr; /* Una colonna sola sui dispositivi mobili */
+                gap: 1rem;
+            }
+            .subsection-photo {
+                height: 200px;
+                order: -1; /* Mette la foto sopra il testo sui telefoni per una resa migliore */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Percorsi ex-PCTO</h1>
+        <p>Daniele Angellotti — Classe VCsa</p>
+    </header>
+
+    <main>
+        
+        <!-- ==================== PRIMO FSL ==================== -->
+        <div class="fsl-year-container">
+            <h2 class="fsl-year-title">Primo FSL</h2>
+            
+            <section>
+                <h2>Cittadinanza digitale internet of things</h2>
+                <p>Il primo percorso di FSL ha offerto un'importante opportunità di crescita sia sul piano delle competenze digitali sia su quello dell'orientamento al futuro percorso di studi. Tra le diverse tappe formative e i laboratori teorico-pratici svolti, due esperienze in particolare hanno rappresentato i pilastri del progetto per il loro valore formativo e orientativo.</p>
+                
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                    <h3 style="font-size: 1.15rem; margin-bottom: 0.6rem; display: inline-block; border-bottom: 2px solid var(--bio-blue); padding-bottom: 2px;">Formazione Tecnologica e Cittadinanza Digitale</h3>
+                    <p>Il percorso ha preso il via con una solida base teorica dedicata alla Teoria IoT (Internet of Things). In questa fase sono stati appresi i concetti fondamentali sui dispositivi connessi e sulla gestione dei dati. Successivamente, queste nozioni sono state applicate nell'elaborazione di una presentazione multimediale.</p>
+                </div>
+                
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                    <h3 style="font-size: 1.15rem; margin-bottom: 0.6rem; display: inline-block; border-bottom: 2px solid var(--bio-blue); padding-bottom: 2px;">Giornata di Orientamento presso il Campus dell'Università di Salerno (Unisa)</h3>
+                    <p>L'esperienza si è conclusa con una giornata di orientamento universitario presso l'Università degli Studi di Salerno. Gli studenti hanno potuto visitare le strutture del Campus, comprendendo l'offerta formativa post-diploma.</p>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ==================== SECONDO FSL ==================== -->
+        <div class="fsl-year-container">
+            <h2 class="fsl-year-title">Secondo FSL</h2>
+            
+            <section>
+                <h2>ABE-AMGEN BIOTECH EXPERIENCE</h2>
+                <p>Il secondo percorso FSL era invece incentrato sulle tecniche di biotecnologie, in particolar modo la pcr e l'elettroforesi su gel. Questa esperienza ha permesso di sviluppare la conoscenza delle tecniche di laboratorio e degli strumenti usati, la lettura dei risultati sperimentali e il collegamento tra teoria e pratica.</p>
+                
+                <!-- Sottosezione: Gel di Agarosio + Foto 2-1 -->
+                <div class="subsection-grid">
+                    <div class="subsection-text">
+                        <h3>Il gel di agarosio</h3>
+                        <p>Il gel di agarosio è un materiale ottenuto da polisaccaridi estratti dalle alghe marine. Viene sciolto a caldo in tampone TBE e versato in uno stampo dove solidifica formando una matrice porosa. Il gel funziona come un "setaccio molecolare": i frammenti piccoli si muovono più velocemente, mentre i frammenti grandi vengono rallentati. Questo permette la separazione delle molecole in base alla dimensione.</p>
+                    </div>
+                    <div class="subsection-photo">
+                        <img src="2-1.jpg" alt="Il gel di agarosio">
+                    </div>
+                </div>
+                
+                <!-- Sottosezione: Elettroforesi + Foto 2-2 -->
+                <div class="subsection-grid">
+                    <div class="subsection-text">
+                        <h3>Elettroforesi</h3>
+                        <p>L'elettroforesi è una tecnica che sfrutta un campo elettrico per far migrare molecole cariche all'interno di un gel. Permette di confrontare campioni di DNA, verificare tagli enzimatici, controllare prodotti PCR e identificare frammenti di diversa lunghezza.</p>
+                    </div>
+                    <div class="subsection-photo">
+                        <img src="2-2.jpg" alt="Elettroforesi">
+                    </div>
+                </div>
+                
+                <!-- Sottosezione: Plasmidi + Foto 2-3 -->
+                <div class="subsection-grid">
+                    <div class="subsection-text">
+                        <h3>I plasmidi</h3>
+                        <p>I plasmidi sono piccole molecole circolari di DNA presenti nei batteri, vengono utilizzati in biotecnologia como vettori genetici, cioè strumenti capaci di trasportare geni. Nel laboratorio sono stati utilizzati plasmidi come PKAN-R e PARA. Gli enzimi di restrizione sono "forbici molecolari" che riconoscono specifiche sequenze di DNA e le tagliano, permettendo di aprire il plasmide, isolare frammenti di DNA, creare estremità compatibili e preparare il DNA alla ricombinazione.</p>
+                    </div>
+                    <div class="subsection-photo">
+                        <img src="2-3.jpg" alt="I plasmidi">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ==================== TERZO FSL ==================== -->
+        <div class="fsl-year-container">
+            <h2 class="fsl-year-title">Terzo FSL</h2>
+            
+            <section>
+                <h2>Orientiamo il futuro-Federico II</h2>
+                <p>Il terzo percorso di FSL prevedeva una serie di webinar su vari argomenti legati all'informatica e al digitale, come l'"Internet of Things" e le applicazioni dell'Intelligenza Artificiale. Questi eventi sono stati organizzati dall'Università Federico II di Napoli.</p>
+                
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                    <h3 style="font-size: 1.15rem; margin-bottom: 0.6rem; display: inline-block; border-bottom: 2px solid var(--bio-pink); padding-bottom: 2px;">Orizzonti Campus D</h3>
+                    <p>Abbiamo anche partecipato a una serie di incontri presso la sede di Monte Sant'Angelo dell'Università Federico II, durante i quali abbiamo visitato i dipartimenti di Biologia e Chimica. Questa esperienza ci ha dato l'opportunità di esplorare da vicino ulteriori possibilità dopo il diploma.</p>
+                </div>
+                
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+                    <h3 style="font-size: 1.15rem; margin-bottom: 0.6rem; display: inline-block; border-bottom: 2px solid var(--bio-pink); padding-bottom: 2px;">Attività di Laboratorio</h3>
+                    <p>In quest'ultimo anno abbiamo svolto anche attività di laboratorio focalizzate su:</p>
+                    <ul style="margin-bottom: 0;">
+                        <li>digestione con enzimi di restrizione e costruzione del plasmide PARA-R;</li>
+                        <li>visualizzazione della restrizione enzimatica mediante elettroforesi su gel di agarosio;</li>
+                        <li>amplificazione mediante PCR e visualizzazione con elettroforesi.</li>
+                    </ul>
+                </div>
+
+                <!-- Sottosezione: Digestione dei plasmidi + Foto 3-1 -->
+                <div class="subsection-grid">
+                    <div class="subsection-text">
+                        <h3>Digestione dei plasmidi</h3>
+                        <p>I plasmidi sono piccole molecole circolari di DNA presenti nei batteri e usate come vettori genetici. Gli enzimi di restrizione agiscono come forbici molecolari, riconoscendo specifiche sequenze di basi e tagliando il DNA in punti precisi. Questo permette di aprire il plasmide, isolare frammenti di DNA e preparare il materiale per la ligazione.</p>
+                    </div>
+                    <div class="subsection-photo">
+                        <img src="3-1.jpg" alt="Digestione dei plasmidi">
+                    </div>
+                </div>
+
+                <!-- Sottosezione: PCR + Foto 3-2 -->
+                <div class="subsection-grid">
+                    <div class="subsection-text">
+                        <h3>PCR</h3>
+                        <p>La PCR è una tecnica che permette di amplificare milioni di copie di una specifica sequenza di DNA. Particolare attenzione è stata dedicata alla **PCR minione**, impostando il termociclatore secondo il protocollo tecnico:</p>
+                        
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Step</th>
+                                        <th>Temp.</th>
+                                        <th>Tempo</th>
+                                        <th>Cicli</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Initial denaturation</td>
+                                        <td>95°C</td>
+                                        <td>360 s</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Denaturation</td>
+                                        <td>95°C</td>
+                                        <td>30 s</td>
+                                        <td rowspan="3" style="vertical-align: middle; text-align: center; font-weight: bold; background: #fafafa;">35</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Annealing</td>
+                                        <td>58°C</td>
+                                        <td>30 s</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Extension</td>
+                                        <td>68°C</td>
+                                        <td>60 s</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Final extension</td>
+                                        <td>68°C</td>
+                                        <td>300 s</td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Final incubation</td>
+                                        <td>4°C</td>
+                                        <td>00 s</td>
+                                        <td>1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="subsection-photo" style="margin-top: 2rem;">
+                        <img src="3-2.jpg" alt="PCR minione">
+                    </div>
+                </div>
+
+                <!-- Sottosezione: Lettura dei risultati + Foto 3-3 -->
+                <div class="subsection-grid">
+                    <div class="subsection-text">
+                        <h3>Lettura dei risultati</h3>
+                        <p>Campioni caricati nel gel: Marker (riferimento di dimensione), PL+ (plasmide non digerito amplificato), PL- (plasmide digerito amplificato) e NC (controllo negativo).</p>
+
+                        <div class="alert-box">
+                            <strong>⚠️ Nota di Laboratorio:</strong> La presenza di bande multiple e della banda nel controllo negativo (NC) suggerisce una possibile contaminazione avvenuta durante la preparazione o il caricamento.
+                        </div>
+                    </div>
+                    <div class="subsection-photo">
+                        <img src="3-3.png" alt="Lettura dei risultati elettroforesi">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Relazione Percorsi EX-PCTO — Daniele Angellotti — Liceo Scientifico Opzione Scienze Applicate</p>
+    </footer>
+
+</body>
+</html>
